@@ -1,0 +1,6 @@
+.d-flex.justify-content-center
+  .sm-container
+    %h1.text-center.mb-4 Liked Stories
+    = render 'stories' , stories: @stories
+    .digg_pagination
+      = will_paginate @data

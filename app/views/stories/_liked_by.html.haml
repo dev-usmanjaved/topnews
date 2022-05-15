@@ -1,0 +1,7 @@
+#liked_by
+  %h6.card-subtitle.mb-2.text-muted Liked by
+  #users.ul.list-group.user_list
+    - unless @liked_by.blank?
+      - liked_by.each do |user|
+        .li.list-group-item{id: "#{user.id}"}
+          = user.full_name

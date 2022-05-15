@@ -1,0 +1,14 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .a.navbar-brand
+    = link_to("Top News", user_signed_in? ? root_path : new_user_session_path , class: 'btn btn-outline-dark')
+  %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", type: "button"}
+    %span.navbar-toggler-icon
+  #navbarNavAltMarkup.collapse.navbar-collapse
+    .navbar-nav
+      .a.nav-item.nav-link.active
+        - if user_signed_in?
+          .d-flex.flex-row
+            = link_to("Liked Stories", likedstories_path, class: 'btn btn-primary mr-4')
+            = button_to("Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary')
+        - else
+          = link_to("Log In", new_user_session_path, class: 'btn btn-primary')

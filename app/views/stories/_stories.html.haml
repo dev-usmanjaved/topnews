@@ -1,0 +1,13 @@
+- if stories.present?
+  %table.table.table-bordered.table-condensed
+    %tr
+      %th.text-center #
+      %th.text-center Title
+
+    - stories.each do |story|
+      %tr.text-center
+        %td= story['id']
+        %td= link_to story['title'], story_path(id: story['id'])
+
+- else
+  %h4.text-center No stories found

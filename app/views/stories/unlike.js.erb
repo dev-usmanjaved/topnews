@@ -1,0 +1,2 @@
+$('#like').replaceWith($('<div id="like"><%= button_to 'Like', like_path(id: @story_id), remote: true, class: 'btn btn-primary mb-4' %></div>'))
+$("<%="##{current_user.id}"%>").remove()

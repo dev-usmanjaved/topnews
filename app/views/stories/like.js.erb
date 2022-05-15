@@ -1,0 +1,2 @@
+$('#like').replaceWith($('<div id="like"><%= button_to 'Unlike', unlike_path(id: @story_id), remote: true, class: 'btn btn-danger mb-4', method: :delete %></div>'))
+$('#users').append($('<div class="li list-group-item" id="<%=current_user.id%>"><%= current_user.full_name %></div>'))

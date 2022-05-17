@@ -1,0 +1,14 @@
+- if @story.present?
+  .d-flex.justify-content-center
+    .card{style: "width: 18rem;"}
+      .card-body
+        .h5.card-title
+          = link_to @story["title"], @story["url"]
+        .h6.card-subtitle.mb-2.text-muted
+          =  ("Author : #{@story["by"]}")
+        #like
+          - if !@is_liked
+            = button_to 'Like', like_path(id: @story["id"]), remote: true, class: 'btn btn-primary mb-4'
+          - else
+            = button_to 'Unlike', unlike_path(id: @story["id"]), method: :delete, remote: true, class: 'btn btn-danger mb-4'
+        = render 'liked_by' , liked_by: @liked_by
